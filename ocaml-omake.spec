@@ -1,4 +1,5 @@
 %define beta rc1
+%define debug_package	%{nil}
 
 Summary:	Build system with automated dependency analysis
 Name:		ocaml-omake
