@@ -17,6 +17,9 @@ BuildRequires:	ocaml-findlib-devel
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gamin)
 BuildRequires:	pkgconfig(ncurses)
+BuildRequires: gcc-c++, gcc, gcc-cpp
+
+
 Conflicts:	osh
 # omake can be used on non-OCaml projects (RHBZ#548536).
 Provides:	omake = %{EVRD}
@@ -57,6 +60,9 @@ features many additional enhancements, including the following.
 %patch1 -p1
 
 %build
+export CC=gcc
+export CXX=g++
+
 make all \
   PREFIX=%{_prefix} MANDIR=%{_mandir} BINDIR=%{_bindir} LIBDIR=%{_libdir}
 
