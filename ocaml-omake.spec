@@ -11,12 +11,16 @@ Url:		http://omake.metaprl.org/download.html
 Source0:	http://omake.metaprl.org/downloads/omake-%{version}-0.%{beta}.tar.gz
 Patch0:		omake-debian-disable-ocaml-warnings.patch
 Patch1:		omake-0.9.8.6-fix-and-or-operators.patch
+Patch2:         omake-0.9.8.6-kill-warn-error.patch
 BuildRequires:	chrpath
 BuildRequires:	ocaml
 BuildRequires:	ocaml-findlib-devel
 BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(gamin)
 BuildRequires:	pkgconfig(ncurses)
+BuildRequires: gcc-c++, gcc, gcc-cpp
+
+
 Conflicts:	osh
 # omake can be used on non-OCaml projects (RHBZ#548536).
 Provides:	omake = %{EVRD}
@@ -55,8 +59,12 @@ features many additional enhancements, including the following.
 %setup -q -n omake-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+export CC=gcc
+export CXX=g++
+
 make all \
   PREFIX=%{_prefix} MANDIR=%{_mandir} BINDIR=%{_bindir} LIBDIR=%{_libdir}
 
