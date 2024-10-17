@@ -7,7 +7,7 @@ Version:	0.9.8.6
 Release:	0.%{beta}.1
 License:	LGPLv2+
 Group:		Development/Other
-Url:		http://omake.metaprl.org/download.html
+Url:		https://omake.metaprl.org/download.html
 Source0:	http://omake.metaprl.org/downloads/omake-%{version}-0.%{beta}.tar.gz
 Patch0:		omake-debian-disable-ocaml-warnings.patch
 Patch1:		omake-0.9.8.6-fix-and-or-operators.patch
